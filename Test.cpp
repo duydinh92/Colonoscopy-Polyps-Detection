@@ -182,7 +182,7 @@ void evaluate_detection(const String& image_dir, Ptr<SVM> &svm, vector<pair<int,
 	vector<int> test;
 	int count = 1;
 
-	for (int i = 970; i < 999; i++) {
+	for (int i = 960; i < 999; i++) {
 		predicted_boxes[stoi(files[i].substr(files[i].find_last_of("\\") + 1, files[i].find(".jpg") - files[i].find_last_of("\\") - 1))] = polypsDetection(files[i], svm, anchor);
 		test.push_back(stoi(files[i].substr(files[i].find_last_of("\\") + 1, files[i].find(".jpg") - files[i].find_last_of("\\") - 1)));
 		cout << count << endl;
