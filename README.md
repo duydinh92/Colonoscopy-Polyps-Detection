@@ -32,7 +32,8 @@ Ptr<SVM> svm = Algorithm::load<SVM>("trained-svm-v3.xml");
 ```
 Demo
 
-![Polyp](https://github.com/duydinh92/Colonoscopy-Polyps-Detection/blob/main/screenshorts/1.PNG =250x250)
+<img src="https://github.com/duydinh92/Colonoscopy-Polyps-Detection/blob/main/screenshorts/1.PNG" width=300>
+<img src="https://github.com/duydinh92/Colonoscopy-Polyps-Detection/blob/main/screenshorts/2.PNG" width=300>
 
  4. *src/EvaluatePerformance.cpp*: evaluating model performance
  
