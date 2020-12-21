@@ -21,9 +21,6 @@
   <ItemGroup>
     <ClInclude Include="include\LoadData.h" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Test.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -123,12 +120,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Admin\source\repos\Project2\include;C:\Users\Admin\source\repos\Project2\src;C:\Users\Admin\source\repos\Project2;D:\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\opencv\build\include;C:\Users\Admin\source\repos\Colonoscopy-Polyps-Detection;C:\Users\Admin\source\repos\Colonoscopy-Polyps-Detection\include;C:\Users\Admin\source\repos\Colonoscopy-Polyps-Detection\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Admin\source\repos\Project2\src;C:\Users\Admin\source\repos\Project2\include;C:\Users\Admin\source\repos\Project2;D:\opencv\build\x64\vc15\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\opencv\build\x64\vc15\lib;C:\Users\Admin\source\repos\Colonoscopy-Polyps-Detection;C:\Users\Admin\source\repos\Colonoscopy-Polyps-Detection\src;C:\Users\Admin\source\repos\Colonoscopy-Polyps-Detection\include;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opencv_world420d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

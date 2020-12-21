@@ -8,7 +8,7 @@ using namespace cv::ml;
 int main() {
 	// Load training data
 	cout << "Load training data ..." << endl;
-	Mat trainData, trainLabels;
+	Mat trainData , trainLabels;
 	loadClass("dataset_v3/train/polyps", 1, trainData, trainLabels);
 	loadClass("dataset_v3/train/non_polyps", -1, trainData, trainLabels);
 	cout << endl;
@@ -23,10 +23,10 @@ int main() {
 	//svm->setDegree(2); //Type = Poly, Gamma = 0.5, C = 2.5
 	svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, (int)1e7, 1e-6));
 	svm->train(trainData, ROW_SAMPLE, trainLabels);
-	svm->save("trained-svm-v.xml");
+	svm->save("trained-svm-v3.xml");
 	cout << "Finished training process." << endl << endl;
 	*/
-	
+
 	// Load trained model
 	cout << "Load trained model ..." << endl << endl;
 	Ptr<SVM> svm = Algorithm::load<SVM>("trained-svm-v3.xml");

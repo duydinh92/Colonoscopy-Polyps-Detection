@@ -48,7 +48,6 @@ void loadClass(const String &dir, int label, Mat &trainData, Mat &trainLabels) {
 	Mat img_src, img_feature;
 	for (int i = 0; i < files.size(); i++) {
 		img_src = imread(files[i], IMREAD_GRAYSCALE);
-		//medianBlur(img_src,img_src, 5); // Blur image
 		img_feature = loadImg(img_src, "hog"); // Load image feature using specific type: "hist", "hog"
 		if (img_feature.empty()) continue;
 		trainData.push_back(img_feature);
@@ -58,8 +57,8 @@ void loadClass(const String &dir, int label, Mat &trainData, Mat &trainLabels) {
 	cout << trainData.rows << " " << trainData.cols << endl;
 }
 
-// Function for caculating accuracy on the test set performance
-void evaluate(Mat &predicted, Mat &actual) { // Evaluate performance score for binary classification model
+// Function for caculating accuracy on the test set performance (SVM)
+void evaluate_svm(Mat &predicted, Mat &actual) { // Evaluate performance score for binary classification model
 	assert(predicted.rows == actual.rows);
 	int tp = 0; // True positive
 	int fp = 0; // False positive
@@ -83,6 +82,39 @@ void evaluate(Mat &predicted, Mat &actual) { // Evaluate performance score for b
 
 	float precision = ((float) tp) / (tp + fp);
 	float recall = ((float) tp) / (tp + fn);
+	cout << tp << " " << tn << " " << fp << " " << fn << endl;
+	cout << "Precision = " << precision << endl;
+	cout << "Recall = " << recall << endl;
+	cout << "F1 = " << 2 * precision * recall / (precision + recall) << endl;
+	cout << "Accuracy = " << ((float)(tp + tn)) / (tp + fp + tn + fn) << endl << endl;
+}
+
+// Function for caculating accuracy on the test set performance (ANN)
+void evaluate_ann(Mat& predicted, Mat& actual) { // Evaluate performance score for binary classification model
+	assert(predicted.rows == actual.rows);
+
+	int tp = 0; // True positive
+	int fp = 0; // False positive
+	int tn = 0; // True negative
+	int fn = 0; // False negative
+
+	for (int i = 0; i < actual.rows; i++) {
+		float p = predicted.at<float>(i, 0);
+		float a = (float)actual.at<int>(i, 0);
+		if (p == 1 && a == 1) {
+			tp++;
+		}
+		else if (p == 0 && a == 0) {
+			tn++;
+		}
+		else if (p == 1 && a == 0) {
+			fp++;
+		}
+		else fn++;
+	}
+
+	float precision = ((float)tp) / (tp + fp);
+	float recall = ((float)tp) / (tp + fn);
 	cout << tp << " " << tn << " " << fp << " " << fn << endl;
 	cout << "Precision = " << precision << endl;
 	cout << "Recall = " << recall << endl;
