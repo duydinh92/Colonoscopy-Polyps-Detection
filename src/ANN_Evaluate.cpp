@@ -191,7 +191,7 @@ Rect polypsDetection(String& path, Ptr<ANN_MLP>& ann, vector<pair<int, int>>& an
 		ratio = ratio * alpha;
 	} while (height * alpha <= image_source.rows && width * alpha <= image_source.cols);
 	
-	/*
+	
 	image_source = imread(path, IMREAD_COLOR);
 	for (auto& temp : predicted_boxes) {
 		predicted_box = temp.first;
@@ -199,7 +199,7 @@ Rect polypsDetection(String& path, Ptr<ANN_MLP>& ann, vector<pair<int, int>>& an
 		drawPred(predicted_box.x, predicted_box.y, predicted_box.x + predicted_box.width, predicted_box.y + predicted_box.height, image_source);
 	}
 	imshow("All predicted boxes", image_source);
-	*/
+	
 	return chooseBox(predicted_boxes);
 }
 
@@ -264,12 +264,12 @@ int main() {
 	// Load trained model
 	Ptr<ANN_MLP> ann = Algorithm::load<ANN_MLP>("trained-ann-v2.xml");
 	
-	/*
+	
 	vector<Rect> actual_boxes = loadCsv("box.csv");
 
 	// Load test image to dectect polyps
-	String path = "original_data\\984.jpg";
-	Rect actual_box = actual_boxes[984];
+	String path = "original_data\\975.jpg";
+	Rect actual_box = actual_boxes[975];
 	
 	
 	// Show polyps detection result
@@ -282,7 +282,7 @@ int main() {
 	drawPred(predicted_box.x, predicted_box.y, predicted_box.x + predicted_box.width, predicted_box.y + predicted_box.height, img);
 	drawOriginal(actual_box.x, actual_box.y, actual_box.x + actual_box.width, actual_box.y + actual_box.height, img);
 	imshow("Polyps detection in the source image", img);
-	*/
+	
 	/*
 	vector<Rect> predicted_boxes = polypsDetection(path, ann, anchor);
 	for (auto& predicted_box : predicted_boxes) {
@@ -291,11 +291,11 @@ int main() {
 	}
 	imshow("Polyps detection in the source image", img);
 	*/
-	
+	/*
 	String csv_file = "box.csv";
 	evaluate_detection("original_data", ann, anchor, csv_file);
 	cin.ignore();
-	
+	*/
 	
 	waitKey();
 	return 0;

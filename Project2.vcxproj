@@ -21,6 +21,9 @@
   <ItemGroup>
     <ClInclude Include="include\LoadData.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ANN_Evaluate.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
