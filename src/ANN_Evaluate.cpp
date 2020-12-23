@@ -216,7 +216,7 @@ void evaluate_detection(const String& image_dir, Ptr<ANN_MLP> &ann, vector<pair<
 	vector<int> test;
 	int count = 1;
 
-	for (int i = 899; i < 999; i++) {
+	for (int i = 799; i < 999; i++) {
 		predicted_boxes[stoi(files[i].substr(files[i].find_last_of("\\") + 1, files[i].find(".jpg") - files[i].find_last_of("\\") - 1))] = polypsDetection(files[i], ann, anchor);
 		test.push_back(stoi(files[i].substr(files[i].find_last_of("\\") + 1, files[i].find(".jpg") - files[i].find_last_of("\\") - 1)));
 		cout << count << endl;
